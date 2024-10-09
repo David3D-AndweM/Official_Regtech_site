@@ -52,6 +52,65 @@
             width: 200px;
             text-align: center;
         }
+
+        /* Navbar styles */
+        .navbar {
+            background-color: #343a40; /* Dark background */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-brand {
+            font-family: 'Overpass', sans-serif;
+            font-weight: bold;
+            color: #ffffff;
+            font-size: 24px;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-brand:hover {
+            color: #ffc107; /* Highlight color on hover */
+        }
+
+        .navbar-nav .nav-item {
+            margin-left: 20px; /* Spacing between items */
+        }
+
+        .nav-link {
+            color: #ffffff; /* Default link color */
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ffc107; /* Highlight color on hover */
+        }
+
+        .nav-item.active .nav-link {
+            color: #ffc107; /* Active link color */
+            font-weight: bold;
+            border-bottom: 2px solid #ffc107; /* Underline for active link */
+        }
+
+        /* Mobile view */
+        @media (max-width: 991px) {
+            .navbar {
+                background-color: #23272b; /* Slightly darker for mobile */
+            }
+        }
+
+        /* Toggler button styles */
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .navbar-toggler:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .navbar-toggler .oi-menu {
+            color: #ffffff; /* Icon color */
+        }
+
     </style>
 </head>
 <body>
