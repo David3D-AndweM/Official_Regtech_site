@@ -86,4 +86,32 @@
         </div>
     </footer>
 </body>
+    <script>// Function to toggle details of a service
+function toggleDetails(serviceElement) {
+    const detailsVisible = serviceElement.classList.contains('expanded');
+    
+    // Collapse any expanded service
+    const allServices = document.querySelectorAll('.service');
+    allServices.forEach(service => service.classList.remove('expanded'));
+    
+    // Expand the clicked service if it wasn't already expanded
+    if (!detailsVisible) {
+        serviceElement.classList.add('expanded');
+    }
+}
+
+// Add an event listener for click animations
+document.addEventListener('DOMContentLoaded', () => {
+    const services = document.querySelectorAll('.service');
+    services.forEach(service => {
+        service.addEventListener('mouseenter', () => {
+            service.classList.add('hovered');
+        });
+
+        service.addEventListener('mouseleave', () => {
+            service.classList.remove('hovered');
+        });
+    });
+});
+</script>
 </html>
