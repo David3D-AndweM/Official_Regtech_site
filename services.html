@@ -5,192 +5,85 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services - Resilient Equity Green Tech Foundation</title>
     <link rel="stylesheet" href="styles.css">
-    <meta name="description" content="Explore our software consultation services including SAP system consultation, custom app development, and more.">
-    <meta name="keywords" content="Software Consultation, SAP Systems, Custom Apps, Flutter Development, Internal Communication, Resilient Equity Green Tech Foundation">
-    <meta name="author" content="David Mwape">
-
-    <link href="https://fonts.googleapis.com/css?family=Overpass:300,400,600,700" rel="stylesheet">
-
-    <style>
-        body {
-            font-family: 'Overpass', sans-serif;
-            background-color: #f0f2f5;
-            margin: 0;
-            padding: 0;
-        }
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h1, h2, h3 {
-            color: #3b5998;
-            text-align: center;
-        }
-        .service {
-            background-color: #fff;
-            margin-bottom: 40px;
-            border-radius: 20px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-        }
-        .price {
-            font-size: 1.5em;
-            color: #28a745;
-            text-align: center;
-        }
-        .team {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .team-member {
-            background-color: #e9ecef;
-            border-radius: 10px;
-            margin: 10px;
-            padding: 15px;
-            width: 200px;
-            text-align: center;
-        }
-
-        /* Navbar styles */
-        .navbar {
-            background-color: #343a40; /* Dark background */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .navbar-brand {
-            font-family: 'Overpass', sans-serif;
-            font-weight: bold;
-            color: #ffffff;
-            font-size: 24px;
-            transition: color 0.3s ease;
-        }
-
-        .navbar-brand:hover {
-            color: #ffc107; /* Highlight color on hover */
-        }
-
-        .navbar-nav .nav-item {
-            margin-left: 20px; /* Spacing between items */
-        }
-
-        .nav-link {
-            color: #ffffff; /* Default link color */
-            font-weight: 500;
-            transition: color 0.3s ease;
-        }
-
-        .nav-link:hover {
-            color: #ffc107; /* Highlight color on hover */
-        }
-
-        .nav-item.active .nav-link {
-            color: #ffc107; /* Active link color */
-            font-weight: bold;
-            border-bottom: 2px solid #ffc107; /* Underline for active link */
-        }
-
-        /* Mobile view */
-        @media (max-width: 991px) {
-            .navbar {
-                background-color: #23272b; /* Slightly darker for mobile */
-            }
-        }
-
-        /* Toggler button styles */
-        .navbar-toggler {
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        .navbar-toggler:hover {
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .navbar-toggler .oi-menu {
-            color: #ffffff; /* Icon color */
-        }
-
-    </style>
+    <script defer src="script.js"></script>
 </head>
 <body>
-
-<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="index.html">Regtech</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="oi oi-menu"></span> Menu
-        </button>
+        <h1>Our Services</h1>
 
-        <div class="collapse navbar-collapse" id="ftco-nav">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="causes.html" class="nav-link">Causes</a></li>
-                <li class="nav-item"><a href="donate.html" class="nav-link">Donate</a></li>
-                <li class="nav-item"><a href="blog.html" class="nav-link">Blog</a></li>
-                <li class="nav-item"><a href="gallery.html" class="nav-link">Gallery</a></li>
-                <li class="nav-item"><a href="event.html" class="nav-link">Events</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-                <li class="nav-item"><a href="services.html" class="nav-link">Our Services</a></li>
+        <div class="service" onclick="toggleDetails(this)">
+            <h2>SAP System Consultation</h2>
+            <p>We provide comprehensive SAP system consultation services to help organizations optimize their business processes and achieve operational excellence. Our team of certified consultants has extensive experience in various SAP modules, ensuring tailored solutions for your business needs.</p>
+            <p class="price">Starting at $5,000</p>
+        </div>
+
+        <div class="service" onclick="toggleDetails(this)">
+            <h2>Custom App Development for Internal Communication</h2>
+            <p>Our custom app development services focus on enhancing internal communication within organizations. We create intuitive and efficient applications that facilitate seamless collaboration among teams, improving productivity and engagement.</p>
+            <p class="price">Starting at $3,000</p>
+        </div>
+
+        <div class="service" onclick="toggleDetails(this)">
+            <h2>EquiStream: The Ultimate NGO Operating System</h2>
+            <p>EquiStream is a state-of-the-art, fully customizable operating system designed to revolutionize NGO operations. It integrates advanced tools and features to ensure transparency, accountability, and operational efficiency in every project. EquiStream caters to the unique needs of non-profits, empowering them to focus on their mission while streamlining administrative processes.</p>
+            <h3>Core Features</h3>
+            <ul>
+                <li><strong>Bulk Communication Tools:</strong> Easily send email and SMS updates to stakeholders and community members.</li>
+                <li><strong>CRM System:</strong> Manage leads, contacts, and follow-ups with an intuitive interface.</li>
+                <li><strong>Interactive Website:</strong> Engage the public with feedback forms, event RSVPs, and real-time updates.</li>
+                <li><strong>Monitoring and Evaluation Module:</strong> Track project impacts and evaluate performance metrics.</li>
+                <li><strong>Real-Time Analytics and Dashboards:</strong> Gain actionable insights with data visualization tools.</li>
+                <li><strong>Secure Cloud Storage and Backups:</strong> Safeguard sensitive data with reliable cloud-based solutions.</li>
             </ul>
+            <h3>Advantages</h3>
+            <p>EquiStream offers a wide range of benefits, including:</p>
+            <ul>
+                <li><strong>Efficiency:</strong> Automate time-consuming tasks, freeing up resources for impactful work.</li>
+                <li><strong>Transparency:</strong> Build trust with stakeholders through open and accessible data sharing.</li>
+                <li><strong>Scalability:</strong> Easily adapt to the growing needs of your organization.</li>
+                <li><strong>Collaboration:</strong> Enhance teamwork with centralized tools for communication and data management.</li>
+                <li><strong>Impact Tracking:</strong> Monitor outcomes and align with your organization’s goals effortlessly.</li>
+            </ul>
+            <p class="price">Prices available upon request</p>
         </div>
-    </div>
-</nav>
 
-<div class="container">
-    <h1>Our Services</h1>
+        <div class="service" onclick="toggleDetails(this)">
+            <h2>Software Design Frameworks</h2>
+            <p>We specialize in various software design frameworks, including:</p>
+            <ul>
+                <li>Flutter for cross-platform app development</li>
+                <li>Django for robust web applications</li>
+                <li>React.js for dynamic user interfaces</li>
+                <li>Java Spring for enterprise-level solutions</li>
+            </ul>
+            <p class="price">Prices vary based on project scope</p>
+        </div>
 
-    <div class="service">
-        <h2>SAP System Consultation</h2>
-        <p>We provide comprehensive SAP system consultation services to help organizations optimize their business processes and achieve operational excellence. Our team of certified consultants has extensive experience in various SAP modules, ensuring tailored solutions for your business needs.</p>
-        <p class="price">Starting at $5,000</p>
-    </div>
+        <div class="service">
+            <h2>Our Team and Partners</h2>
+            <p>Our team consists of skilled professionals dedicated to delivering high-quality software solutions. We collaborate with industry leaders to ensure that we provide our clients with the best services and technologies available.</p>
 
-    <div class="service">
-        <h2>Custom App Development for Internal Communication</h2>
-        <p>Our custom app development services focus on enhancing internal communication within organizations. We create intuitive and efficient applications that facilitate seamless collaboration among teams, improving productivity and engagement.</p>
-        <p class="price">Starting at $3,000</p>
-    </div>
-
-    <div class="service">
-        <h2>Software Design Frameworks</h2>
-        <p>We specialize in various software design frameworks, including:</p>
-        <ul>
-            <li>Flutter for cross-platform app development</li>
-            <li>Django for robust web applications</li>
-            <li>React.js for dynamic user interfaces</li>
-            <li>Java Spring for enterprise-level solutions</li>
-        </ul>
-        <p class="price">Prices vary based on project scope</p>
-    </div>
-
-    <div class="service">
-        <h2>Our Team and Partners</h2>
-        <p>Our team consists of skilled professionals dedicated to delivering high-quality software solutions. We collaborate with industry leaders to ensure that we provide our clients with the best services and technologies available.</p>
-
-        <div class="team">
-            <div class="team-member">
-                <h3>Graff Innocent</h3>
-                <p>Lead SAP Consultant</p>
-            </div>
-            <div class="team-member">
-                <h3>Sean Chimowa</h3>
-                <p>Custom App Developer</p>
-            </div>
-            <div class="team-member">
-                <h3>David Mwape</h3>
-                <p>Software Architect</p>
+            <div class="team">
+                <div class="team-member">
+                    <h3>Graff Innocent</h3>
+                    <p>Lead SAP Consultant</p>
+                </div>
+                <div class="team-member">
+                    <h3>Sean Chimowa</h3>
+                    <p>Custom App Developer</p>
+                </div>
+                <div class="team-member">
+                    <h3>David Mwape</h3>
+                    <p>Software Architect</p>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<footer>
-    <div class="container">
-        <p>&copy; 2024 Resilient Equity Green Tech Foundation - All rights reserved.</p>
-    </div>
-</footer>
-
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Resilient Equity Green Tech Foundation - All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
