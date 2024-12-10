@@ -13,25 +13,27 @@
         }
 
         body, html {
-            font-family: system-ui, sans-serif;
-            height: 100%;
+            font-family: 'Arial', sans-serif;
             background: #161616;
+            color: #fff;
+            height: 100%;
+            margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
-            color: #fff;
-            margin: 0;
+            justify-content: flex-start;
         }
 
-        /* Header */
         h1 {
             font-size: 3rem;
+            margin-top: 20px;
             margin-bottom: 20px;
+            text-align: center;
             position: relative;
             z-index: 1;
         }
 
+        /* Header Animation */
         h1::before {
             content: "";
             position: absolute;
@@ -51,14 +53,12 @@
             transform-origin: bottom left;
         }
 
-        /* Container */
+        /* Main Container */
         .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px;
-            width: 100%;
+            width: 90%;
             max-width: 1200px;
+            padding: 20px;
+            text-align: center;
         }
 
         /* Service Cards */
@@ -72,6 +72,8 @@
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: inline-block;
+            vertical-align: top;
         }
 
         .service:hover {
@@ -92,6 +94,7 @@
         .service .price {
             font-weight: bold;
             font-size: 1.2rem;
+            color: #0073e6;
         }
 
         .service.expanded {
@@ -100,98 +103,49 @@
             box-shadow: 0 4px 15px rgba(0, 115, 230, 0.4);
         }
 
-        /* Rotating Square Animation */
-        .square {
-            height: 100px;
-            width: 100px;
-            background: white;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            margin: -50px 0 0 -50px;
-            animation: rotate 10s infinite linear;
+        /* Features and Advantages */
+        .features {
+            margin-top: 30px;
+            padding: 20px;
+            background: #222;
+            border-radius: 10px;
         }
 
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .features h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
         }
 
-        /* Cat Animation */
-        .cat {
-            position: relative;
-            height: 170px;
-            width: 192px;
-            margin-bottom: 20px;
+        .features ul {
+            list-style: none;
+            padding-left: 20px;
         }
 
-        .ear, .ear::before, .ear::after {
-            background: #fff;
+        .features li {
+            font-size: 1rem;
+            margin: 10px 0;
+            line-height: 1.5;
         }
 
-        .ear {
-            position: absolute;
-            top: -30%;
-            height: 60%;
-            width: 25%;
+        .advantages {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
         }
 
-        .ear--left {
-            left: -7%;
-            border-radius: 70% 30% 0% 0% / 100% 100% 0% 0%;
-            transform: rotate(-15deg);
+        .advantage {
+            background: #333;
+            padding: 15px;
+            width: 250px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            transition: transform 0.3s ease;
         }
 
-        .ear--right {
-            right: -7%;
-            border-radius: 30% 70% 0% 0% / 100% 100% 0% 0%;
-            transform: rotate(15deg);
-        }
-
-        .face {
-            position: absolute;
-            height: 100%;
-            width: 100%;
-            background: #161616;
-            border-radius: 50%;
-        }
-
-        .eye {
-            position: absolute;
-            top: 35%;
-            height: 30%;
-            width: 31%;
-            background: white;
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-        }
-
-        .eye::before {
-            content: '';
-            position: absolute;
-            top: 60%;
-            height: 10%;
-            width: 15%;
-            background: white;
-            border-radius: 50%;
-        }
-
-        .eye-pupil {
-            position: absolute;
-            top: 25%;
-            height: 50%;
-            width: 20%;
-            background: #161616;
-            border-radius: 50%;
-            animation: look-around 4s infinite;
-        }
-
-        @keyframes look-around {
-            0%, 100% { transform: translate(0, 0); }
-            5% { transform: translate(50%, -25%); }
-            10% { transform: translate(50%, -25%); }
-            15% { transform: translate(-100%, -25%); }
-            20% { transform: translate(-100%, -25%); }
-            25% { transform: translate(0, 0); }
+        .advantage:hover {
+            transform: scale(1.05);
         }
 
         /* Footer */
@@ -207,13 +161,14 @@
         /* Team Section */
         .team {
             display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
+            justify-content: center;
+            margin-top: 50px;
             width: 100%;
         }
 
         .team-member {
             text-align: center;
+            margin: 0 20px;
         }
 
         .team-member h3 {
@@ -224,6 +179,24 @@
             font-size: 1rem;
             font-weight: normal;
         }
+
+        /* Animations */
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .rotating-background {
+            height: 100px;
+            width: 100px;
+            background-color: #fff;
+            animation: rotate 10s infinite linear;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -50px 0 0 -50px;
+        }
+
     </style>
 </head>
 <body>
@@ -231,42 +204,58 @@
     <div class="container">
         <!-- Header -->
         <h1>Our Services</h1>
+        <p>We provide innovative solutions to optimize business processes through cutting-edge systems like SAP, custom app development, and more.</p>
+
         <!-- Service Cards -->
         <div class="service" onclick="toggleDetails(this)">
             <h2>SAP System Consultation</h2>
-            <p>We provide comprehensive SAP system consultation services to help organizations optimize their business processes and achieve operational excellence.</p>
+            <p>Optimize business processes and achieve operational excellence with our SAP system consultation services.</p>
             <p class="price">Starting at $5,000</p>
         </div>
 
         <div class="service" onclick="toggleDetails(this)">
             <h2>Custom App Development</h2>
-            <p>We create intuitive and efficient applications for internal communication and collaboration, improving productivity and engagement.</p>
+            <p>Create intuitive, efficient applications for enhanced internal communication and collaboration.</p>
             <p class="price">Starting at $3,000</p>
         </div>
 
         <div class="service" onclick="toggleDetails(this)">
-            <h2>EquiStream: The Ultimate NGO Operating System</h2>
-            <p>EquiStream is designed to revolutionize NGO operations with tools for communication, CRM, real-time analytics, and more.</p>
+            <h2>EquiStream: NGO Operating System</h2>
+            <p>EquiStream streamlines NGO operations with tools for project management, CRM, real-time analytics, and more.</p>
             <p class="price">Prices available upon request</p>
         </div>
 
         <div class="service" onclick="toggleDetails(this)">
-            <h2>Software Design Frameworks</h2>
-            <p>We specialize in Flutter, Django, React.js, and Java Spring for dynamic, scalable software solutions.</p>
-            <p class="price">Prices vary based on project scope</p>
+            <h2>Custom CRM Development</h2>
+            <p>We build tailored CRM systems that help you manage relationships, track leads, and automate processes.</p>
+            <p class="price">Contact for pricing</p>
         </div>
 
-        <!-- Cat Animation -->
-        <div class="cat">
-            <div class="ear ear--left"></div>
-            <div class="ear ear--right"></div>
-            <div class="face">
-                <div class="eye eye--left">
-                    <div class="eye-pupil"></div>
-                </div>
-                <div class="eye eye--right">
-                    <div class="eye-pupil"></div>
-                </div>
+        <!-- Features and Advantages for SAP Service -->
+        <div class="features">
+            <h3>Key Features of Our SAP Services:</h3>
+            <ul>
+                <li>Comprehensive system audits and analysis</li>
+                <li>Custom SAP solutions tailored to your business needs</li>
+                <li>Seamless integration with your existing systems</li>
+                <li>Real-time data reporting and analytics</li>
+                <li>Expert consultation on SAP modules</li>
+            </ul>
+        </div>
+
+        <!-- Advantages Section -->
+        <div class="advantages">
+            <div class="advantage">
+                <h4>Efficiency</h4>
+                <p>Automate complex workflows and free up valuable resources for strategic work.</p>
+            </div>
+            <div class="advantage">
+                <h4>Scalability</h4>
+                <p>Our systems grow with your business, adapting to increasing demands and complexity.</p>
+            </div>
+            <div class="advantage">
+                <h4>Transparency</h4>
+                <p>Provide clear, real-time insights to stakeholders, fostering trust and accountability.</p>
             </div>
         </div>
 
@@ -285,15 +274,15 @@
                 <p>Software Architect</p>
             </div>
         </div>
-
-        <!-- Footer -->
-        <footer>
-            <p>&copy; 2024 Resilient Equity Green Tech Foundation - All rights reserved.</p>
-        </footer>
     </div>
 
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Resilient Equity Green Tech Foundation - All rights reserved.</p>
+    </footer>
+
     <script>
-        // Toggle the expanded view for service details
+        // Toggle service detail expansion
         function toggleDetails(serviceElement) {
             const detailsVisible = serviceElement.classList.contains('expanded');
             
