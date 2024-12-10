@@ -4,136 +4,296 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services - Resilient Equity Green Tech Foundation</title>
-    <link rel="stylesheet" href="styles.css">
-    <script defer src="script.js"></script>
-    <style>.service {
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    padding: 15px;
-    border: 1px solid #ccc;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    overflow: hidden;
-}
+    <style>
+        /* Basic Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-.service.hovered {
-    transform: scale(1.05);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
+        html, body {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            font-family: system-ui, sans-serif;
+            background: #161616;
+        }
 
-.service.expanded {
-    background-color: #f9f9f9;
-    border-color: #0073e6;
-    box-shadow: 0 2px 10px rgba(0, 115, 230, 0.4);
-    transition: all 0.4s ease;
-}
-</style>
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: hsl(200, 100%, 80%);
+            transform: scaleX(0);
+            transform-origin: bottom right;
+            z-index: -1;
+            transition: transform 0.3s ease;
+        }
+
+        h1:hover::before {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 20px;
+        }
+
+        .service {
+            background: white;
+            color: #161616;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px;
+            width: 300px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .service h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .service p {
+            font-size: 1rem;
+            margin-bottom: 10px;
+        }
+
+        .service .price {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .service.expanded {
+            background: #f9f9f9;
+            border: 1px solid #0073e6;
+            box-shadow: 0 4px 15px rgba(0, 115, 230, 0.4);
+        }
+
+        .team {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .team-member {
+            text-align: center;
+            color: white;
+        }
+
+        .team-member h3 {
+            font-size: 1.5rem;
+        }
+
+        .team-member p {
+            font-size: 1rem;
+            font-weight: normal;
+        }
+
+        /* Rotating Square */
+        .square {
+            height: 100px;
+            width: 100px;
+            background: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin: -50px 0 0 -50px;
+            animation: rotate 10s infinite linear;
+        }
+
+        .black {
+            background: #161616;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Cat Animation */
+        .cat {
+            position: relative;
+            height: 170px;
+            width: 192px;
+        }
+
+        .ear, .ear::before, .ear::after {
+            background: #fff;
+        }
+
+        .ear {
+            position: absolute;
+            top: -30%;
+            height: 60%;
+            width: 25%;
+        }
+
+        .ear--left {
+            left: -7%;
+            border-radius: 70% 30% 0% 0% / 100% 100% 0% 0%;
+            transform: rotate(-15deg);
+        }
+
+        .ear--right {
+            right: -7%;
+            border-radius: 30% 70% 0% 0% / 100% 100% 0% 0%;
+            transform: rotate(15deg);
+        }
+
+        .face {
+            position: absolute;
+            height: 100%;
+            width: 100%;
+            background: #161616;
+            border-radius: 50%;
+        }
+
+        .eye {
+            position: absolute;
+            top: 35%;
+            height: 30%;
+            width: 31%;
+            background: white;
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+        }
+
+        .eye::before {
+            content: '';
+            position: absolute;
+            top: 60%;
+            height: 10%;
+            width: 15%;
+            background: white;
+            border-radius: 50%;
+        }
+
+        .eye-pupil {
+            position: absolute;
+            top: 25%;
+            height: 50%;
+            width: 20%;
+            background: #161616;
+            border-radius: 50%;
+            animation: look-around 4s infinite;
+        }
+
+        @keyframes look-around {
+            0%, 100% { transform: translate(0, 0); }
+            5% { transform: translate(50%, -25%); }
+            10% { transform: translate(50%, -25%); }
+            15% { transform: translate(-100%, -25%); }
+            20% { transform: translate(-100%, -25%); }
+            25% { transform: translate(0, 0); }
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: #161616;
+            color: white;
+            width: 100%;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Our Services</h1>
-
         <div class="service" onclick="toggleDetails(this)">
             <h2>SAP System Consultation</h2>
-            <p>We provide comprehensive SAP system consultation services to help organizations optimize their business processes and achieve operational excellence. Our team of certified consultants has extensive experience in various SAP modules, ensuring tailored solutions for your business needs.</p>
+            <p>We provide comprehensive SAP system consultation services to help organizations optimize their business processes and achieve operational excellence.</p>
             <p class="price">Starting at $5,000</p>
         </div>
 
         <div class="service" onclick="toggleDetails(this)">
-            <h2>Custom App Development for Internal Communication</h2>
-            <p>Our custom app development services focus on enhancing internal communication within organizations. We create intuitive and efficient applications that facilitate seamless collaboration among teams, improving productivity and engagement.</p>
+            <h2>Custom App Development</h2>
+            <p>We create intuitive and efficient applications for internal communication and collaboration, improving productivity and engagement.</p>
             <p class="price">Starting at $3,000</p>
         </div>
 
         <div class="service" onclick="toggleDetails(this)">
             <h2>EquiStream: The Ultimate NGO Operating System</h2>
-            <p>EquiStream is a state-of-the-art, fully customizable operating system designed to revolutionize NGO operations. It integrates advanced tools and features to ensure transparency, accountability, and operational efficiency in every project. EquiStream caters to the unique needs of non-profits, empowering them to focus on their mission while streamlining administrative processes.</p>
-            <h3>Core Features</h3>
-            <ul>
-                <li><strong>Bulk Communication Tools:</strong> Easily send email and SMS updates to stakeholders and community members.</li>
-                <li><strong>CRM System:</strong> Manage leads, contacts, and follow-ups with an intuitive interface.</li>
-                <li><strong>Interactive Website:</strong> Engage the public with feedback forms, event RSVPs, and real-time updates.</li>
-                <li><strong>Monitoring and Evaluation Module:</strong> Track project impacts and evaluate performance metrics.</li>
-                <li><strong>Real-Time Analytics and Dashboards:</strong> Gain actionable insights with data visualization tools.</li>
-                <li><strong>Secure Cloud Storage and Backups:</strong> Safeguard sensitive data with reliable cloud-based solutions.</li>
-            </ul>
-            <h3>Advantages</h3>
-            <p>EquiStream offers a wide range of benefits, including:</p>
-            <ul>
-                <li><strong>Efficiency:</strong> Automate time-consuming tasks, freeing up resources for impactful work.</li>
-                <li><strong>Transparency:</strong> Build trust with stakeholders through open and accessible data sharing.</li>
-                <li><strong>Scalability:</strong> Easily adapt to the growing needs of your organization.</li>
-                <li><strong>Collaboration:</strong> Enhance teamwork with centralized tools for communication and data management.</li>
-                <li><strong>Impact Tracking:</strong> Monitor outcomes and align with your organization’s goals effortlessly.</li>
-            </ul>
+            <p>EquiStream is designed to revolutionize NGO operations with tools for communication, CRM, real-time analytics, and more.</p>
             <p class="price">Prices available upon request</p>
         </div>
 
         <div class="service" onclick="toggleDetails(this)">
             <h2>Software Design Frameworks</h2>
-            <p>We specialize in various software design frameworks, including:</p>
-            <ul>
-                <li>Flutter for cross-platform app development</li>
-                <li>Django for robust web applications</li>
-                <li>React.js for dynamic user interfaces</li>
-                <li>Java Spring for enterprise-level solutions</li>
-            </ul>
+            <p>We specialize in Flutter, Django, React.js, and Java Spring for dynamic, scalable software solutions.</p>
             <p class="price">Prices vary based on project scope</p>
         </div>
 
-        <div class="service">
-            <h2>Our Team and Partners</h2>
-            <p>Our team consists of skilled professionals dedicated to delivering high-quality software solutions. We collaborate with industry leaders to ensure that we provide our clients with the best services and technologies available.</p>
-
-            <div class="team">
-                <div class="team-member">
-                    <h3>Graff Innocent</h3>
-                    <p>Lead SAP Consultant</p>
-                </div>
-                <div class="team-member">
-                    <h3>Sean Chimowa</h3>
-                    <p>Custom App Developer</p>
-                </div>
-                <div class="team-member">
-                    <h3>David Mwape</h3>
-                    <p>Software Architect</p>
-                </div>
+        <div class="team">
+            <div class="team-member">
+                <h3>Graff Innocent</h3>
+                <p>Lead SAP Consultant</p>
+            </div>
+            <div class="team-member">
+                <h3>Sean Chimowa</h3>
+                <p>Custom App Developer</p>
+            </div>
+            <div class="team-member">
+                <h3>David Mwape</h3>
+                <p>Software Architect</p>
             </div>
         </div>
+
+        <footer>
+            <p>&copy; 2024 Resilient Equity Green Tech Foundation - All rights reserved.</p>
+        </footer>
     </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Resilient Equity Green Tech Foundation - All rights reserved.</p>
-        </div>
-    </footer>
+    <script>
+        function toggleDetails(serviceElement) {
+            const detailsVisible = serviceElement.classList.contains('expanded');
+            
+            // Collapse any expanded service
+            const allServices = document.querySelectorAll('.service');
+            allServices.forEach(service => service.classList.remove('expanded'));
+            
+            // Expand the clicked service if it wasn't already expanded
+            if (!detailsVisible) {
+                serviceElement.classList.add('expanded');
+            }
+        }
+
+        // Mouse hover animation for service cards
+        document.querySelectorAll('.service').forEach(service => {
+            service.addEventListener('mouseenter', () => {
+                service.style.transform = 'scale(1.05)';
+                service.style.boxShadow = '0 6px 25px rgba(0, 0, 0, 0.2)';
+            });
+            service.addEventListener('mouseleave', () => {
+                service.style.transform = 'scale(1)';
+                service.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
+            });
+        });
+    </script>
 </body>
-    <script>// Function to toggle details of a service
-function toggleDetails(serviceElement) {
-    const detailsVisible = serviceElement.classList.contains('expanded');
-    
-    // Collapse any expanded service
-    const allServices = document.querySelectorAll('.service');
-    allServices.forEach(service => service.classList.remove('expanded'));
-    
-    // Expand the clicked service if it wasn't already expanded
-    if (!detailsVisible) {
-        serviceElement.classList.add('expanded');
-    }
-}
-
-// Add an event listener for click animations
-document.addEventListener('DOMContentLoaded', () => {
-    const services = document.querySelectorAll('.service');
-    services.forEach(service => {
-        service.addEventListener('mouseenter', () => {
-            service.classList.add('hovered');
-        });
-
-        service.addEventListener('mouseleave', () => {
-            service.classList.remove('hovered');
-        });
-    });
-});
-</script>
 </html>
