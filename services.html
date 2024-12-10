@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resilient Equity Green Tech Foundation offers digital solutions like custom CRMs, communication systems, and NGO operating platforms to empower organizations globally.">
+    <meta name="keywords" content="custom CRM, NGO operating system, internal communication, tech solutions, sustainable development, Resilient Equity Green Tech Foundation">
+    <meta name="author" content="Resilient Equity Green Tech Foundation">
     <title>Our Services - Resilient Equity Green Tech Foundation</title>
     <style>
         /* Global Styles */
@@ -18,14 +21,41 @@
             color: #fff;
             height: 100%;
             overflow-x: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
         }
 
         h1, h2, h3 {
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Navigation Bar */
+        nav {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 20px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #00c6ff;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #fff;
         }
 
         /* Cursor Bubble */
@@ -53,50 +83,6 @@
             }
         }
 
-        /* Spinning Square Background */
-        .spinning-square {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 150px;
-            height: 150px;
-            background: rgba(255, 255, 255, 0.2);
-            animation: rotateSquare 5s linear infinite;
-            transform: translate(-50%, -50%);
-        }
-
-        @keyframes rotateSquare {
-            0% {
-                transform: translate(-50%, -50%) rotate(0deg);
-            }
-            100% {
-                transform: translate(-50%, -50%) rotate(360deg);
-            }
-        }
-
-        /* Page Header */
-        header {
-            text-align: center;
-            margin: 30px 0;
-        }
-
-        header h1 {
-            font-size: 4rem;
-            background: linear-gradient(45deg, #00c6ff, #0073e6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: text-glow 1.5s infinite alternate;
-        }
-
-        @keyframes text-glow {
-            0% {
-                text-shadow: 0 0 10px #0073e6, 0 0 20px #0073e6, 0 0 30px #0073e6;
-            }
-            100% {
-                text-shadow: 0 0 20px #00c6ff, 0 0 30px #00c6ff, 0 0 40px #00c6ff;
-            }
-        }
-
         /* Service Section */
         .services {
             display: flex;
@@ -114,73 +100,11 @@
             width: 300px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
-            position: relative;
         }
 
         .service-card:hover {
             transform: scale(1.05);
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
-        }
-
-        .service-card h2 {
-            font-size: 1.8rem;
-            color: #00c6ff;
-            margin-bottom: 10px;
-        }
-
-        .service-card p {
-            line-height: 1.5;
-            font-size: 1rem;
-            margin-bottom: 10px;
-        }
-
-        .service-card .price {
-            font-weight: bold;
-            font-size: 1.2rem;
-            color: #00c6ff;
-        }
-
-        /* Engineers Section */
-        .team {
-            margin: 40px auto;
-            text-align: center;
-        }
-
-        .team h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .team-members {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .team-member {
-            width: 200px;
-            padding: 10px;
-            background: #1c1c1c;
-            border-radius: 8px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-        }
-
-        .team-member img {
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            margin-bottom: 10px;
-        }
-
-        .team-member h3 {
-            font-size: 1.2rem;
-            color: #00c6ff;
-        }
-
-        .team-member p {
-            font-size: 1rem;
-            color: #aaa;
         }
 
         /* Footer */
@@ -195,15 +119,28 @@
     </style>
 </head>
 <body>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#causes">Causes</a></li>
+            <li><a href="#donate">Donate</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#events">Events</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#services">Our Services</a></li>
+        </ul>
+    </nav>
+
     <div class="cursor-bubble"></div>
-    <div class="spinning-square"></div>
 
     <header>
         <h1>Resilient Equity Green Tech Foundation</h1>
         <p>Building digital solutions to empower organizations globally.</p>
     </header>
 
-    <section class="services">
+    <section id="services" class="services">
         <div class="service-card">
             <h2>Custom CRM Development</h2>
             <p>We design and implement custom CRM systems tailored to your organization's unique needs.</p>
@@ -218,27 +155,6 @@
             <h2>NGO Operating System</h2>
             <p>EquiStream simplifies operations, featuring analytics, CRM integration, and communication tools.</p>
             <p class="price">Contact us for pricing</p>
-        </div>
-    </section>
-
-    <section class="team">
-        <h2>Meet Our Engineers</h2>
-        <div class="team-members">
-            <div class="team-member">
-                <img src="https://via.placeholder.com/100" alt="Engineer">
-                <h3>David Mwape</h3>
-                <p>Lead Software Engineer</p>
-            </div>
-            <div class="team-member">
-                <img src="https://via.placeholder.com/100" alt="Engineer">
-                <h3>Sean Chimowa</h3>
-                <p>UI/UX Specialist</p>
-            </div>
-            <div class="team-member">
-                <img src="https://via.placeholder.com/100" alt="Engineer">
-                <h3>Zache</h3>
-                <p>Backend Developer</p>
-            </div>
         </div>
     </section>
 
