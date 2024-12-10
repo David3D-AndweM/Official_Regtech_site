@@ -6,8 +6,6 @@
     <title>Our Services - Resilient Equity Green Tech Foundation</title>
     <style>
         /* Global Styles */
-
-        
         * {
             margin: 0;
             padding: 0;
@@ -33,6 +31,8 @@
             text-align: center;
             position: relative;
             z-index: 1;
+            letter-spacing: 2px;
+            font-weight: 700;
         }
 
         /* Header Animation */
@@ -61,6 +61,7 @@
             max-width: 1200px;
             padding: 20px;
             text-align: center;
+            margin-top: 50px;
         }
 
         /* Service Cards */
@@ -73,9 +74,11 @@
             width: 300px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.4s ease;
             display: inline-block;
             vertical-align: top;
+            position: relative;
+            overflow: hidden;
         }
 
         .service:hover {
@@ -86,6 +89,7 @@
         .service h2 {
             font-size: 1.8rem;
             margin-bottom: 10px;
+            transition: all 0.3s ease;
         }
 
         .service p {
@@ -111,6 +115,7 @@
             padding: 20px;
             background: #222;
             border-radius: 10px;
+            color: #fff;
         }
 
         .features h3 {
@@ -150,6 +155,79 @@
             transform: scale(1.05);
         }
 
+        /* Rotating Square Background */
+        .rotating-background {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            height: 100px;
+            width: 100px;
+            background-color: #fff;
+            animation: rotate 10s infinite linear;
+            margin: -50px 0 0 -50px;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Cat Animation (from snippet) */
+        .cat {
+            position: relative;
+            height: 170px;
+            width: 192px;
+            margin: 0 auto;
+        }
+
+        .ear, .eye, .muzzle {
+            position: absolute;
+        }
+
+        .ear {
+            background: #fff;
+            height: 60%;
+            width: 25%;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        .eye {
+            background: #fff;
+            width: 31%;
+            height: 30%;
+            border-radius: 50%;
+            top: 35%;
+        }
+
+        .eye-pupil {
+            background: #161616;
+            height: 50%;
+            width: 20%;
+            border-radius: 50%;
+            top: 25%;
+            animation: look-around 4s infinite;
+        }
+
+        @keyframes look-around {
+            0%, 25% { transform: translate(0, 0); }
+            5% { transform: translate(50%, -25%); }
+            15% { transform: translate(-100%, -25%); }
+            100% { transform: translate(0, 0); }
+        }
+
+        /* Animations for the eyes */
+        .eye:hover {
+            animation: blink 0.3s ease;
+        }
+
+        @keyframes blink {
+            0% { height: 30%; }
+            90% { height: 30%; }
+            95% { height: 100%; }
+            100% { height: 30%; }
+        }
+
         /* Footer */
         footer {
             margin-top: 50px;
@@ -182,21 +260,17 @@
             font-weight: normal;
         }
 
-        /* Animations */
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        /* Utility Class for Hover */
+        .service:hover .eye {
+            transform: scale(1.1);
+            animation: pulse 2s ease infinite;
         }
 
-        .rotating-background {
-            height: 100px;
-            width: 100px;
-            background-color: #fff;
-            animation: rotate 10s infinite linear;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            margin: -50px 0 0 -50px;
+        /* Pulse Animation */
+        @keyframes pulse {
+            0% { transform: scale(1.1); }
+            50% { transform: scale(1.15); }
+            100% { transform: scale(1.1); }
         }
 
     </style>
@@ -204,61 +278,36 @@
 <body>
 
     <div class="container">
+        <!-- Rotating Background Square -->
+        <div class="rotating-background"></div>
+
         <!-- Header -->
         <h1>Our Services</h1>
-        <p>We provide innovative solutions to optimize business processes through cutting-edge systems like SAP, custom app development, and more.</p>
+        <p>We offer innovative software solutions that streamline business processes and enhance operational efficiency.</p>
 
         <!-- Service Cards -->
         <div class="service" onclick="toggleDetails(this)">
             <h2>SAP System Consultation</h2>
-            <p>Optimize business processes and achieve operational excellence with our SAP system consultation services.</p>
+            <p>Optimize business processes with SAP and achieve operational excellence.</p>
             <p class="price">Starting at $5,000</p>
         </div>
 
         <div class="service" onclick="toggleDetails(this)">
             <h2>Custom App Development</h2>
-            <p>Create intuitive, efficient applications for enhanced internal communication and collaboration.</p>
+            <p>We create tailored mobile applications to enhance communication and productivity.</p>
             <p class="price">Starting at $3,000</p>
         </div>
 
         <div class="service" onclick="toggleDetails(this)">
-            <h2>EquiStream: NGO Operating System</h2>
-            <p>EquiStream streamlines NGO operations with tools for project management, CRM, real-time analytics, and more.</p>
-            <p class="price">Prices available upon request</p>
-        </div>
-
-        <div class="service" onclick="toggleDetails(this)">
-            <h2>Custom CRM Development</h2>
-            <p>We build tailored CRM systems that help you manage relationships, track leads, and automate processes.</p>
-            <p class="price">Contact for pricing</p>
-        </div>
-
-        <!-- Features and Advantages for SAP Service -->
-        <div class="features">
-            <h3>Key Features of Our SAP Services:</h3>
+            <h2>EquiStream: The NGO Operating System</h2>
+            <p>Revolutionize NGO operations with a fully customizable system that enhances efficiency.</p>
+            <h3>Core Features</h3>
             <ul>
-                <li>Comprehensive system audits and analysis</li>
-                <li>Custom SAP solutions tailored to your business needs</li>
-                <li>Seamless integration with your existing systems</li>
-                <li>Real-time data reporting and analytics</li>
-                <li>Expert consultation on SAP modules</li>
+                <li>Bulk Communication Tools</li>
+                <li>CRM System</li>
+                <li>Real-Time Analytics</li>
             </ul>
-        </div>
-
-        <!-- Advantages Section -->
-        <div class="advantages">
-            <div class="advantage">
-                <h4>Efficiency</h4>
-                <p>Automate complex workflows and free up valuable resources for strategic work.</p>
-            </div>
-            <div class="advantage">
-                <h4>Scalability</h4>
-                <p>Our systems grow with your business, adapting to increasing demands and complexity.</p>
-            </div>
-            <div class="advantage">
-                <h4>Transparency</h4>
-                <p>Provide clear, real-time insights to stakeholders, fostering trust and accountability.</p>
-            </div>
+            <p class="price">Prices available upon request</p>
         </div>
 
         <!-- Team Section -->
@@ -276,77 +325,15 @@
                 <p>Software Architect</p>
             </div>
         </div>
-    </div>
-    <div>
-<div class="container">
-<div class="square black">
-<div class="square">
-<div class="square black">
-<div class="square">
-<div class="square black">
-<div class="square">
-<div class="square black">
-<div class="square">
-<div class="square black">
-<div class="square">
-<div class="square black">
-<div class="square">
-<div class="square black">
-<div class="square">
-<div class="square black">
-<div class="square">
-<div class="square black">
-<div class="square">
-<div class="square black">
-<div class="square">
-<div class="square black">
-<div class="square">
-<div class="square black">
-<div class="square">
-<div class="square black">
-<div class="square">
-<div class="square black">
-<div class="square">
-<div class="square black">
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Resilient Equity Green Tech Foundation - All rights reserved.</p>
-    </footer>
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2024 Resilient Equity Green Tech Foundation - All rights reserved.</p>
+        </footer>
+
+    </div>
 
     <script>
-        // Toggle service detail expansion
         function toggleDetails(serviceElement) {
             const detailsVisible = serviceElement.classList.contains('expanded');
             
