@@ -5,23 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Services - Resilient Equity Green Tech Foundation</title>
     <style>
-        /* Basic Reset */
+        /* Global Styles */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
-        html, body {
+        body, html {
+            font-family: system-ui, sans-serif;
             height: 100%;
+            background: #161616;
             display: flex;
             flex-direction: column;
-            justify-content: center;
             align-items: center;
-            font-family: system-ui, sans-serif;
-            background: #161616;
+            justify-content: center;
+            color: #fff;
+            margin: 0;
         }
 
+        /* Header */
         h1 {
             font-size: 3rem;
             margin-bottom: 20px;
@@ -48,14 +51,17 @@
             transform-origin: bottom left;
         }
 
+        /* Container */
         .container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 100%;
             padding: 20px;
+            width: 100%;
+            max-width: 1200px;
         }
 
+        /* Service Cards */
         .service {
             background: white;
             color: #161616;
@@ -94,27 +100,7 @@
             box-shadow: 0 4px 15px rgba(0, 115, 230, 0.4);
         }
 
-        .team {
-            display: flex;
-            justify-content: space-around;
-            margin-top: 20px;
-        }
-
-        .team-member {
-            text-align: center;
-            color: white;
-        }
-
-        .team-member h3 {
-            font-size: 1.5rem;
-        }
-
-        .team-member p {
-            font-size: 1rem;
-            font-weight: normal;
-        }
-
-        /* Rotating Square */
+        /* Rotating Square Animation */
         .square {
             height: 100px;
             width: 100px;
@@ -124,10 +110,6 @@
             left: 50%;
             margin: -50px 0 0 -50px;
             animation: rotate 10s infinite linear;
-        }
-
-        .black {
-            background: #161616;
         }
 
         @keyframes rotate {
@@ -140,6 +122,7 @@
             position: relative;
             height: 170px;
             width: 192px;
+            margin-bottom: 20px;
         }
 
         .ear, .ear::before, .ear::after {
@@ -220,11 +203,35 @@
             width: 100%;
             text-align: center;
         }
+
+        /* Team Section */
+        .team {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .team-member h3 {
+            font-size: 1.5rem;
+        }
+
+        .team-member p {
+            font-size: 1rem;
+            font-weight: normal;
+        }
     </style>
 </head>
 <body>
+
     <div class="container">
+        <!-- Header -->
         <h1>Our Services</h1>
+        <!-- Service Cards -->
         <div class="service" onclick="toggleDetails(this)">
             <h2>SAP System Consultation</h2>
             <p>We provide comprehensive SAP system consultation services to help organizations optimize their business processes and achieve operational excellence.</p>
@@ -249,6 +256,21 @@
             <p class="price">Prices vary based on project scope</p>
         </div>
 
+        <!-- Cat Animation -->
+        <div class="cat">
+            <div class="ear ear--left"></div>
+            <div class="ear ear--right"></div>
+            <div class="face">
+                <div class="eye eye--left">
+                    <div class="eye-pupil"></div>
+                </div>
+                <div class="eye eye--right">
+                    <div class="eye-pupil"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team Section -->
         <div class="team">
             <div class="team-member">
                 <h3>Graff Innocent</h3>
@@ -264,12 +286,14 @@
             </div>
         </div>
 
+        <!-- Footer -->
         <footer>
             <p>&copy; 2024 Resilient Equity Green Tech Foundation - All rights reserved.</p>
         </footer>
     </div>
 
     <script>
+        // Toggle the expanded view for service details
         function toggleDetails(serviceElement) {
             const detailsVisible = serviceElement.classList.contains('expanded');
             
@@ -282,18 +306,7 @@
                 serviceElement.classList.add('expanded');
             }
         }
-
-        // Mouse hover animation for service cards
-        document.querySelectorAll('.service').forEach(service => {
-            service.addEventListener('mouseenter', () => {
-                service.style.transform = 'scale(1.05)';
-                service.style.boxShadow = '0 6px 25px rgba(0, 0, 0, 0.2)';
-            });
-            service.addEventListener('mouseleave', () => {
-                service.style.transform = 'scale(1)';
-                service.style.boxShadow = '0 4px 15px rgba(0, 0, 0, 0.1)';
-            });
-        });
     </script>
+
 </body>
 </html>
