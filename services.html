@@ -271,6 +271,45 @@
         </div>
     </section>
 
+<section>
+    <h2>Contact Us</h2>
+    <form id="contact-form">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required><br>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" required></textarea><br>
+
+        <button type="submit">Send Message</button>
+    </form>
+
+    <script>
+        // Initialize EmailJS
+        emailjs.init('YOUR_USER_ID'); // Replace with your actual User ID
+
+        // Handle form submission
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const formData = new FormData(this);
+
+            // Send the email via EmailJS
+            emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', formData)
+                .then(function(response) {
+                    console.log('Success:', response);
+                    alert('Your message has been sent!');
+                }, function(error) {
+                    console.log('Error:', error);
+                    alert('There was an error sending your message.');
+                });
+        });
+    </script>
+
+</section>
+
     <section class="team">
         <h2>Meet Our Engineers</h2>
         <div class="team-members">
