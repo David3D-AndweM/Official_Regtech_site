@@ -260,17 +260,50 @@
             font-weight: normal;
         }
 
-        /* Utility Class for Hover */
-        .service:hover .eye {
-            transform: scale(1.1);
-            animation: pulse 2s ease infinite;
+        /* Popup Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeIn 0.5s ease-out;
         }
 
-        /* Pulse Animation */
-        @keyframes pulse {
-            0% { transform: scale(1.1); }
-            50% { transform: scale(1.15); }
-            100% { transform: scale(1.1); }
+        .modal-content {
+            background: #fff;
+            color: #161616;
+            border-radius: 12px;
+            padding: 30px;
+            width: 80%;
+            max-width: 600px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-header {
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .modal-close {
+            cursor: pointer;
+            font-size: 1.5rem;
+            background: transparent;
+            border: none;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #161616;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
     </style>
@@ -283,69 +316,93 @@
 
         <!-- Header -->
         <h1>Our Services</h1>
-        <p>We offer innovative software solutions that streamline business processes and enhance operational efficiency.</p>
+        <p class="intro">Explore our solutions for enhancing business operations and efficiency.</p>
 
         <!-- Service Cards -->
-        <div class="service" onclick="toggleDetails(this)">
+        <div class="service" onclick="openModal('SAP System Consultation')">
             <h2>SAP System Consultation</h2>
-            <p>Optimize business processes with SAP and achieve operational excellence.</p>
+            <p>Optimize your business processes with tailored SAP solutions.</p>
             <p class="price">Starting at $5,000</p>
         </div>
 
-        <div class="service" onclick="toggleDetails(this)">
+        <div class="service" onclick="openModal('Custom App Development')">
             <h2>Custom App Development</h2>
-            <p>We create tailored mobile applications to enhance communication and productivity.</p>
+            <p>Enhance communication and productivity with custom apps.</p>
             <p class="price">Starting at $3,000</p>
         </div>
 
-        <div class="service" onclick="toggleDetails(this)">
+        <div class="service" onclick="openModal('EquiStream: The NGO Operating System')">
             <h2>EquiStream: The NGO Operating System</h2>
-            <p>Revolutionize NGO operations with a fully customizable system that enhances efficiency.</p>
-            <h3>Core Features</h3>
-            <ul>
-                <li>Bulk Communication Tools</li>
-                <li>CRM System</li>
-                <li>Real-Time Analytics</li>
-            </ul>
+            <p>Streamline operations with a fully customizable system.</p>
             <p class="price">Prices available upon request</p>
-        </div>
-
-        <!-- Team Section -->
-        <div class="team">
-            <div class="team-member">
-                <h3>Graff Innocent</h3>
-                <p>Lead SAP Consultant</p>
-            </div>
-            <div class="team-member">
-                <h3>Sean Chimowa</h3>
-                <p>Custom App Developer</p>
-            </div>
-            <div class="team-member">
-                <h3>David Mwape</h3>
-                <p>Software Architect</p>
-            </div>
         </div>
 
         <!-- Footer -->
         <footer>
             <p>&copy; 2024 Resilient Equity Green Tech Foundation - All rights reserved.</p>
         </footer>
+    </div>
 
+    <!-- Modal Popup -->
+    <div class="modal" id="serviceModal">
+        <div class="modal-content">
+            <button class="modal-close" onclick="closeModal()">×</button>
+            <div class="modal-header" id="modalTitle"></div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
     </div>
 
     <script>
-        function toggleDetails(serviceElement) {
-            const detailsVisible = serviceElement.classList.contains('expanded');
-            
-            // Collapse any expanded service
-            const allServices = document.querySelectorAll('.service');
-            allServices.forEach(service => service.classList.remove('expanded'));
-            
-            // Expand the clicked service if it wasn't already expanded
-            if (!detailsVisible) {
-                serviceElement.classList.add('expanded');
+        // Open Modal and Set Content
+        function openModal(serviceName) {
+            const modal = document.getElementById('serviceModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+
+            // Set content based on service clicked
+            if(serviceName === 'SAP System Consultation') {
+                modalTitle.innerHTML = 'SAP System Consultation';
+                modalBody.innerHTML = `
+                    <h3>Core Features</h3>
+                    <ul>
+                        <li>Business Process Optimization</li>
+                        <li>Certified SAP Consultants</li>
+                        <li>Tailored Solutions</li>
+                    </ul>
+                    <p>Price: Starting at $5,000</p>
+                `;
+            } else if(serviceName === 'Custom App Development') {
+                modalTitle.innerHTML = 'Custom App Development';
+                modalBody.innerHTML = `
+                    <h3>Core Features</h3>
+                    <ul>
+                        <li>Custom Mobile and Web Apps</li>
+                        <li>User-Centric Design</li>
+                        <li>Cross-Platform Solutions</li>
+                    </ul>
+                    <p>Price: Starting at $3,000</p>
+                `;
+            } else if(serviceName === 'EquiStream: The NGO Operating System') {
+                modalTitle.innerHTML = 'EquiStream: The NGO Operating System';
+                modalBody.innerHTML = `
+                    <h3>Core Features</h3>
+                    <ul>
+                        <li>Bulk Communication Tools</li>
+                        <li>CRM System</li>
+                        <li>Real-Time Analytics</li>
+                    </ul>
+                    <p>Price: Available Upon Request</p>
+                `;
             }
+
+            modal.style.display = 'flex';
         }
+
+        // Close Modal
+        function closeModal() {
+            document.getElementById('serviceModal').style.display = 'none';
+        }
+
     </script>
 
 </body>
